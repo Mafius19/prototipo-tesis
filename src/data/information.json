@@ -1,0 +1,14 @@
+{
+    "tooltip_info": {
+        "administrative": "Es el número de páginas de tipo administrativas que visitó el usuario.",
+        "administrative_duration":"Cantidad de tiempo dedicado a esta categoría de 'páginas administrativas'.",
+        "bounce_rates": "El ratio de visitantes que ingresan al sitio web y salen sin desencadenar ninguna tarea adicional.",
+        "exit_rates": "El ratio de páginas vistas en el sitio web que terminan en esa página específica.",
+        "informational": "Es el número de páginas de tipo informativas que visitó el usuario.",
+        "new_visitor": "Si el usuario es un tipo de visitante nuevo en el sitio web",
+        "page_values": "El valor promedio de la página promediado sobre el valor de la página de destino y/o la finalización de un e-commerce.",
+        "product_related": "Es el número de páginas relacionadas con el producto, que visitó el usuario.",
+        "product_related_duration": "Cantidad de tiempo dedicado a páginas relacionadas con el producto."
+
+    }
+}

@@ -1,9 +1,12 @@
 import numpy as np
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open('trainedModel.pkl', 'rb'))
+# modelo de 10 caracteristicas
+# model = pickle.load(open('trainedModel.pkl', 'rb'))
+# modelo de 14 variables (mas preciso)
+model = pickle.load(open('trainedModel14.pkl', 'rb'))
 
 @app.route('/')
 def home():
@@ -12,10 +15,9 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json(force=True)
-    print(data["bounceRates"])
-    print(float(data["bounceRates"]))
     # obtencion y normalizacion de cada feature
-    newVisitor = int(data["newVisitor"])
+    # newVisitor = int(data["newVisitor"])
+    returningVisitor = int(data["returningVisitor"])
     administrativeP= int(data["administrativeP"])
     administrativeTime= float(data["administrativeTime"])
     informational= int(data["informational"])
@@ -24,8 +26,15 @@ def predict():
     bounceRates= float(data["bounceRates"])
     exitRates= float(data["exitRates"])
     pageValues= float(data["pageValues"])
+    specialDay= float(data["specialDay"])
+    operatingSystems= int(data["operatingSystems"])
+    region= int(data["region"])
+    trafficType= float(data["trafficType"])
     # pasado los datos a numpy
-    final_features = [np.array([newVisitor,administrativeP,administrativeTime, informational, productRelated, productRelatedDuration, bounceRates, exitRates, pageValues])]
+    final_features = [np.array([returningVisitor,administrativeP,
+    administrativeTime, informational, productRelated, productRelatedDuration,
+     bounceRates, exitRates, pageValues, specialDay, operatingSystems, region, trafficType])]
+    print(final_features)
     # prediccion
     prediction = model.predict(final_features)
     output = str(prediction[0])

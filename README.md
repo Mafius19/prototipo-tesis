@@ -68,3 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+docker run -d --name tesis_etl_pg -v C:\Users\matia\Documents\postgresql\data -p 5432:5432 -e POSTGRES_PASSWORD=POSTGRES -e POSTGRES_USER=postgres -e POSTGRES_DB=tesispy postgres
+
+docker exec -it tesis_etl_pg psql -h localhost -U postgres -W tesispy
